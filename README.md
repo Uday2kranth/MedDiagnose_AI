@@ -1,8 +1,6 @@
 ---
 title: MedDiagnose AI
 emoji: 🧬
-colorFrom: indigo
-colorTo: green
 sdk: docker
 app_port: 7860
 pinned: false
@@ -10,7 +8,7 @@ pinned: false
 
 # MedDiagnose AI — Clinical ML Prediction, XAI Explainability & Conversational Diagnostic Agent
 
-[![Live App](https://img.shields.io/badge/Live_App-Railway-blue?style=for-the-badge)](https://meddiagnoseai-production.up.railway.app)
+[![Live App](https://img.shields.io/badge/Live_App-Vercel-blue?style=for-the-badge)](https://med-diagnose-ai.vercel.app/)
 
 MedDiagnose AI is a full-stack, dual-language clinical intelligence platform that lets medical professionals upload any healthcare CSV dataset, automatically trains an XGBoost machine learning model (classification or regression), generates real-time SHAP-powered explanations for every prediction, and connects a structured conversational AI agent capable of interpreting results and emailing diagnostic reports to patients. The platform features a premium React + Vite frontend with a space-themed glassmorphic UI, a FastAPI Python backend, and a standalone R statistics pipeline for academic compliance.
 
@@ -795,7 +793,7 @@ A completely self-contained 128-line R script requiring only `dplyr` and `stats`
 | `GET` | `/api/sample` | — | `{"sample": {"feature": value, ...}}` |
 | `POST` | `/api/predict` | `application/json` — patient dict | `{"task_type": "...", "prediction": "...", "confidence": N, "shap_summary": "...", "shap_impact": [...]}` |
 | `GET` | `/api/xai-global` | — | `{"features": [{"name": "...", "importance": N, "direction": "..."}], "sample_size": N}` |
-| `GET` | `/api/eda` | — | `{"plots": {"plot_dist1": "base64...", "plot_dist2": "base64...", "plot_corr": "base64..."}}` |
+| `GET` | `/api/eda` | — | `{"plots": {"plot_dist1": "base64...", "plot_dist2": "base64...", "plot_corr": "base64...", "plot_class_balance": "base64...", "plot_boxplot": "base64..."}}` |
 | `GET` | `/api/report?format=md` | query param: `format` = `md` or `txt` | `{"report": "...", "format": "md"}` |
 | `POST` | `/api/chat` | `{"message": "...", "provider": "...", "model": "...", "api_key": "..."}` | `{"response": "..."}` |
 
