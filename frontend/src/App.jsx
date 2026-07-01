@@ -236,6 +236,18 @@ export default function App() {
     }
   };
 
+  const handleResetSession = () => {
+    setMetrics(null);
+    setFeatures([]);
+    setFeatureStats(null);
+    setPredictData({});
+    setResult(null);
+    setBatchData([]);
+    setStep('upload');
+    setUploadSuccess(false);
+    setActiveTab('upload');
+  };
+
   // Render current tab content
   const renderTabContent = () => {
     switch (activeTab) {
@@ -256,6 +268,43 @@ export default function App() {
             }}
           />
         );
+      case 'upload':
+        return (
+          <div key="upload-active" className="reset-container" style={{
+            background: 'rgba(255, 255, 255, 0.02)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '16px',
+            padding: '40px',
+            textAlign: 'center',
+            maxWidth: '600px',
+            margin: '40px auto',
+            backdropFilter: 'blur(20px)',
+            boxShadow: 'var(--shadow-lg)'
+          }}>
+            <h2 style={{ color: 'var(--text-white)', marginBottom: '16px', fontWeight: '800', letterSpacing: '-0.02em' }}>Active Dataset Session</h2>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
+              A clinical dataset is currently loaded, and the predictive machine learning model has been trained. To analyze a different dataset, you can reset the current active session.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+              <button 
+                onClick={handleResetSession}
+                className="btn-primary"
+                style={{
+                  background: 'linear-gradient(135deg, #ef4444, #f87171)',
+                  color: 'white',
+                  border: 'none',
+                  padding: '12px 24px',
+                  borderRadius: '12px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 14px rgba(239, 68, 68, 0.3)'
+                }}
+              >
+                Reset Session & Upload New CSV
+              </button>
+            </div>
+          </div>
+        );
       case 'batch':
         return (
           <BatchPanel
@@ -263,6 +312,7 @@ export default function App() {
             batchData={batchData}
             metrics={metrics}
             taskType={taskType}
+            onReset={handleResetSession}
           />
         );
       case 'xai':

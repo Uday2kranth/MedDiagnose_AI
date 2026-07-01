@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 
-export default function BatchPanel({ batchData, metrics, taskType }) {
+export default function BatchPanel({ batchData, metrics, taskType, onReset }) {
   const [loading, setLoading] = useState(false);
   const [predictions, setPredictions] = useState(null);
   const [error, setError] = useState(null);
@@ -83,21 +83,44 @@ export default function BatchPanel({ batchData, metrics, taskType }) {
             </div>
           </div>
           
-          <button
-            onClick={handleRunBatch}
-            disabled={loading}
-            className="batch-run-btn"
-          >
-            {loading ? (
-              <>
-                <div className="spinner-mini" /> Evaluating Batch...
-              </>
-            ) : (
-              <>
-                <Play size={16} fill="currentColor" /> Run Batch Inference
-              </>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            {onReset && (
+              <button
+                onClick={onReset}
+                className="btn-secondary"
+                style={{
+                  background: 'rgba(239, 68, 68, 0.1)',
+                  color: '#f87171',
+                  border: '1px solid rgba(239, 68, 68, 0.2)',
+                  borderRadius: '12px',
+                  padding: '10px 18px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                Reset Session
+              </button>
             )}
-          </button>
+            <button
+              onClick={handleRunBatch}
+              disabled={loading}
+              className="batch-run-btn"
+            >
+              {loading ? (
+                <>
+                  <div className="spinner-mini" /> Evaluating Batch...
+                </>
+              ) : (
+                <>
+                  <Play size={16} fill="currentColor" /> Run Batch Inference
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         {error && (
