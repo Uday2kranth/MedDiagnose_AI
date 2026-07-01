@@ -277,7 +277,7 @@ export default function App() {
             borderRadius: '16px',
             padding: '40px',
             textAlign: 'center',
-            maxWidth: '600px',
+            maxWidth: '800px',
             margin: '40px auto',
             backdropFilter: 'blur(20px)',
             boxShadow: 'var(--shadow-lg)'
@@ -286,7 +286,7 @@ export default function App() {
             <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
               A clinical dataset is currently loaded, and the predictive machine learning model has been trained. To analyze a different dataset, you can reset the current active session.
             </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '8px' }}>
               <button 
                 onClick={handleResetSession}
                 className="btn-primary"
@@ -303,6 +303,127 @@ export default function App() {
               >
                 Reset Session & Upload New CSV
               </button>
+            </div>
+
+            <div style={{ margin: '30px 0 10px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '24px' }}>
+              <h3 style={{ color: 'var(--text-white)', fontSize: '14px', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                🚀 Direct Access Directories
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px', textAlign: 'left' }}>
+                
+                {/* Inference Console */}
+                <div 
+                  onClick={() => setActiveTab('dashboard')}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.015)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
+                    borderRadius: '12px',
+                    padding: '14px 18px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(0, 212, 255, 0.04)';
+                    e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.25)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.015)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#00d4ff', fontWeight: '700', fontSize: '13px', marginBottom: '4px' }}>
+                    <LayoutDashboard size={14} /> Inference Console
+                  </div>
+                  <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
+                    Run real-time predictions for single patients and view individual SHAP explanations.
+                  </p>
+                </div>
+
+                {/* XAI Explorer */}
+                <div 
+                  onClick={() => setActiveTab('xai')}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.015)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
+                    borderRadius: '12px',
+                    padding: '14px 18px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(14, 246, 204, 0.04)';
+                    e.currentTarget.style.borderColor = 'rgba(14, 246, 204, 0.25)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.015)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0ef6cc', fontWeight: '700', fontSize: '13px', marginBottom: '4px' }}>
+                    <Brain size={14} /> XAI Explorer
+                  </div>
+                  <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
+                    Examine global feature importance to understand the overall risk drivers of your model.
+                  </p>
+                </div>
+
+                {/* Diagnostic Report */}
+                <div 
+                  onClick={() => setActiveTab('report')}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.015)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
+                    borderRadius: '12px',
+                    padding: '14px 18px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(244, 114, 182, 0.04)';
+                    e.currentTarget.style.borderColor = 'rgba(244, 114, 182, 0.25)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.015)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#f472b6', fontWeight: '700', fontSize: '13px', marginBottom: '4px' }}>
+                    <FileText size={14} /> Diagnostic Report
+                  </div>
+                  <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
+                    Generate a complete clinical summary and email diagnostic findings to patients.
+                  </p>
+                </div>
+
+                {/* Chat with Nurse Usagi */}
+                <div 
+                  onClick={() => setChatOpen(true)}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.015)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)',
+                    borderRadius: '12px',
+                    padding: '14px 18px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(56, 189, 248, 0.04)';
+                    e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.25)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.015)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.04)';
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', fontWeight: '700', fontSize: '13px', marginBottom: '4px' }}>
+                    <MessageCircle size={14} /> Nurse Usagi Chat
+                  </div>
+                  <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
+                    Engage with the specialized clinical AI chatbot assistant to interpret predictions.
+                  </p>
+                </div>
+
+              </div>
             </div>
           </div>
         );
