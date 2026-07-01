@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AnimatePresence } from 'framer-motion';
+import { UploadCloud, LayoutDashboard, Brain, FileText, Database } from 'lucide-react';
 import './App.css';
 
 // Components

@@ -169,7 +169,7 @@ export default function BatchPanel({ batchData, metrics, taskType, onReset }) {
                   <div className="batch-stat-subcard">
                     <span className="batch-stat-lbl">Avg Confidence</span>
                     <span className="batch-stat-val">
-                      {(predictions.reduce((acc, curr) => acc + curr.confidence, 0) / predictions.length).toFixed(1)}%
+                      {(predictions.reduce((acc, curr) => acc + (curr?.confidence || 0), 0) / predictions.length).toFixed(1)}%
                     </span>
                   </div>
                 )}
@@ -201,14 +201,14 @@ export default function BatchPanel({ batchData, metrics, taskType, onReset }) {
                 {batchData.map((row, idx) => (
                   <tr key={idx} className={predictions ? 'predicted-row' : ''}>
                     <td style={{ textAlign: 'center', fontWeight: 'bold', color: 'var(--text-muted)' }}>{idx + 1}</td>
-                    {predictions && (
+                    {predictions && predictions[idx] && (
                       <td style={{ fontWeight: 'bold', color: predictions[idx].prediction === "1" || predictions[idx].prediction === "diabetic" || predictions[idx].prediction === "positive" ? 'var(--accent-coral)' : 'var(--accent-mint)' }}>
                         {predictions[idx].prediction}
                       </td>
                     )}
-                    {predictions && taskType === 'classification' && (
+                    {predictions && predictions[idx] && taskType === 'classification' && (
                       <td style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
-                        {predictions[idx].confidence.toFixed(1)}%
+                        {(predictions[idx].confidence || 0).toFixed(1)}%
                       </td>
                     )}
                     {columns.map(col => (

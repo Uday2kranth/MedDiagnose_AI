@@ -18,7 +18,7 @@ export default function WelcomePortal({ onTabChange, onModelLoad, isModelReady }
         onModelLoad(res.data);
         // Delay slightly for smooth transition
         setTimeout(() => {
-          onTabChange('batch');
+          onTabChange('dashboard');
         }, 300);
       } else {
         setError("Invalid response received from server.");
@@ -104,12 +104,26 @@ export default function WelcomePortal({ onTabChange, onModelLoad, isModelReady }
           Welcome to <span className="text-gradient">MedDiagnose AI</span>
         </h1>
         
-        <p className="welcome-subtitle">
+        <p className="welcome-subtitle" style={{ maxWidth: '750px', margin: '0 auto 12px' }}>
           An advanced machine learning portal featuring auto-adaptive classification/regression pipelines, SHAP explainability, and multi-provider chatbot support.
+        </p>
+        
+        <p style={{
+          fontSize: '0.85rem',
+          color: 'var(--text-muted)',
+          maxWidth: '650px',
+          margin: '0 auto',
+          lineHeight: '1.6',
+          background: 'rgba(255, 255, 255, 0.02)',
+          border: '1px solid rgba(255, 255, 255, 0.04)',
+          padding: '12px 18px',
+          borderRadius: '12px'
+        }}>
+          💡 <strong>How to Start:</strong> Navigate to the <strong>Upload Dataset</strong> tab on the sidebar to upload a patient CSV spreadsheet and train the predictive pipeline. If you do not have a dataset, click the <strong>Load Sample Dataset (Instant Demo)</strong> button below to automatically initialize the diabetes patient cohort.
         </p>
 
         {/* Demo Button */}
-        <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}

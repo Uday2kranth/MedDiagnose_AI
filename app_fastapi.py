@@ -804,6 +804,72 @@ async def get_eda():
         except Exception as e:
             plots["plot_confusion_error"] = str(e)
 
+    # 5. Target Class Balance Plot
+    if target_col in df.columns:
+        try:
+            fig, ax = plt.subplots(figsize=(6, 4))
+            fig.patch.set_facecolor('#0b0f19')
+            ax.set_facecolor('#0f172a')
+            
+            counts = df[target_col].value_counts()
+            colors = ["#3b82f6", "#ef4444", "#10b981", "#f59e0b", "#6366f1"]
+            ax.bar(counts.index.astype(str), counts.values, color=colors[:len(counts)], alpha=0.8, width=0.4)
+            
+            ax.set_title(f"Target Class Balance ({target_col})", fontsize=12, fontweight='bold', color='#f8fafc')
+            ax.set_xlabel("Outcome Class", color='#94a3b8')
+            ax.set_ylabel("Patient Count", color='#94a3b8')
+            ax.tick_params(colors='#94a3b8')
+            ax.grid(True, color='#334155', alpha=0.3)
+            for spine in ax.spines.values():
+                spine.set_color('#334155')
+                
+            buf = io.BytesIO()
+            plt.savefig(buf, format='png', dpi=120, bbox_inches='tight')
+            buf.seek(0)
+            plots["plot_class_balance"] = base64.b64encode(buf.read()).decode('utf-8')
+            plt.close(fig)
+        except Exception as e:
+            plots["plot_class_balance_error"] = str(e)
+
+    # 6. Feature Boxplot Plot (grouped by target)
+    if len(dist_cols) > 0 and target_col in df.columns:
+        try:
+            col1 = dist_cols[0]
+            fig, ax = plt.subplots(figsize=(6, 4))
+            fig.patch.set_facecolor('#0b0f19')
+            ax.set_facecolor('#0f172a')
+            
+            unique_vals = sorted(df[target_col].unique())
+            data_groups = [df[df[target_col] == val][col1].dropna().values for val in unique_vals]
+            
+            bp = ax.boxplot(data_groups, labels=[str(v) for v in unique_vals], patch_artist=True)
+            
+            colors = ["#3b82f6", "#ef4444", "#10b981", "#f59e0b", "#6366f1"]
+            for patch, color in zip(bp['boxes'], colors):
+                patch.set_facecolor(color)
+                patch.set_alpha(0.6)
+                patch.set_edgecolor('#94a3b8')
+            
+            for element in ['whiskers', 'caps', 'medians']:
+                plt.setp(bp[element], color='#94a3b8')
+            plt.setp(bp['fliers'], markeredgecolor='#ef4444', markerfacecolor='#ef4444')
+            
+            ax.set_title(f"{col1} Distribution Grouped by {target_col}", fontsize=12, fontweight='bold', color='#f8fafc')
+            ax.set_xlabel(target_col, color='#94a3b8')
+            ax.set_ylabel(col1, color='#94a3b8')
+            ax.tick_params(colors='#94a3b8')
+            ax.grid(True, color='#334155', alpha=0.3)
+            for spine in ax.spines.values():
+                spine.set_color('#334155')
+                
+            buf = io.BytesIO()
+            plt.savefig(buf, format='png', dpi=120, bbox_inches='tight')
+            buf.seek(0)
+            plots["plot_boxplot"] = base64.b64encode(buf.read()).decode('utf-8')
+            plt.close(fig)
+        except Exception as e:
+            plots["plot_boxplot_error"] = str(e)
+
     return {
         "plots": plots,
         "dataset_name": "diabetes.csv" if state.get('df') is None else "uploaded_dataset.csv"

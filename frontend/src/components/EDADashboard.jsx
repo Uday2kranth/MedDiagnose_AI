@@ -113,47 +113,185 @@ export default function EDADashboard({ isModelReady }) {
 
               {data && !loading && (
                 <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                  gap: '20px'
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '40px',
+                  alignItems: 'center',
+                  marginTop: '10px'
                 }}>
+                  {/* 1. First Feature Distribution */}
                   {data.plots.plot_dist1 && (
-                    <div style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: '14px', padding: '12px', textAlign: 'center' }}>
+                    <div style={{ 
+                      background: 'rgba(255,255,255,0.015)', 
+                      border: '1px solid rgba(255,255,255,0.04)', 
+                      borderRadius: '16px', 
+                      padding: '20px', 
+                      width: '100%',
+                      maxWidth: '720px',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+                    }}>
                       <img 
                         src={`data:image/png;base64,${data.plots.plot_dist1}`} 
                         alt="Feature 1 distribution" 
                         style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}
                       />
-                      <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px' }}>First Continuous Feature Distribution</p>
+                      <div style={{
+                        marginTop: '16px',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        background: 'rgba(0, 212, 255, 0.03)',
+                        border: '1px solid rgba(0, 212, 255, 0.1)',
+                        textAlign: 'left'
+                      }}>
+                        <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#00d4ff', margin: '0 0 6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Info size={14} /> Understanding Feature Density & Spread
+                        </h4>
+                        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0, lineHeight: '1.5' }}>
+                          This histogram represents the probability density and count of patient measurements for your primary clinical feature. 
+                          The colored cohorts show the overlap between outcome categories. 
+                          <strong>Clinical Value:</strong> If positive cases (red) cluster heavily in higher ranges while negative cases (blue) reside in lower ranges, it indicates a high diagnostic correlation and suggests a sharp numerical cut-off for patient screening.
+                        </p>
+                      </div>
                     </div>
                   )}
+
+                  {/* 2. Second Feature Distribution */}
                   {data.plots.plot_dist2 && (
-                    <div style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: '14px', padding: '12px', textAlign: 'center' }}>
+                    <div style={{ 
+                      background: 'rgba(255,255,255,0.015)', 
+                      border: '1px solid rgba(255,255,255,0.04)', 
+                      borderRadius: '16px', 
+                      padding: '20px', 
+                      width: '100%',
+                      maxWidth: '720px',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+                    }}>
                       <img 
                         src={`data:image/png;base64,${data.plots.plot_dist2}`} 
                         alt="Feature 2 distribution" 
                         style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}
                       />
-                      <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px' }}>Second Continuous Feature Distribution</p>
+                      <div style={{
+                        marginTop: '16px',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        background: 'rgba(16, 185, 129, 0.03)',
+                        border: '1px solid rgba(16, 185, 129, 0.1)',
+                        textAlign: 'left'
+                      }}>
+                        <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#10b981', margin: '0 0 6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Info size={14} /> Secondary Clinical Attribute Spread
+                        </h4>
+                        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0, lineHeight: '1.5' }}>
+                          This histogram maps the distribution of the second most continuous feature. By looking at the peak height and overlap of the outcome groups, you can perceive the dispersion shape.
+                          <strong>Clinical Value:</strong> It reveals if the feature is normally distributed or highly skewed. Highly skewed features can influence model training, which alerts data scientists to apply scaling transforms.
+                        </p>
+                      </div>
                     </div>
                   )}
+
+                  {/* 3. Pearson Correlation Heatmap */}
                   {data.plots.plot_corr && (
                     <div style={{ 
                       background: 'rgba(255,255,255,0.015)', 
                       border: '1px solid rgba(255,255,255,0.04)', 
-                      borderRadius: '14px', 
-                      padding: '12px', 
-                      textAlign: 'center',
-                      gridColumn: '1 / -1',
-                      maxWidth: '700px',
-                      margin: '10px auto 0'
+                      borderRadius: '16px', 
+                      padding: '20px', 
+                      width: '100%',
+                      maxWidth: '720px',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
                     }}>
                       <img 
                         src={`data:image/png;base64,${data.plots.plot_corr}`} 
                         alt="Correlation matrix" 
                         style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}
                       />
-                      <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '8px' }}>Pearson correlation heatmap</p>
+                      <div style={{
+                        marginTop: '16px',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        background: 'rgba(139, 92, 246, 0.03)',
+                        border: '1px solid rgba(139, 92, 246, 0.1)',
+                        textAlign: 'left'
+                      }}>
+                        <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#a78bfa', margin: '0 0 6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Info size={14} /> Pearson Correlation Coefficient Heatmap
+                        </h4>
+                        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0, lineHeight: '1.5' }}>
+                          This matrix plots linear correlations between variables. Colors range from deep red (+1, strong positive correlation) to deep blue (-1, strong negative correlation), with dark/black representing near-zero correlation.
+                          <strong>Data Science Value:</strong> It prevents redundant features (multicollinearity) from overfitting your models. It also explicitly shows which patient features (e.g. Glucose) have the strongest raw linear association with the target diagnosis.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 4. Target Class Balance (NEW) */}
+                  {data.plots.plot_class_balance && (
+                    <div style={{ 
+                      background: 'rgba(255,255,255,0.015)', 
+                      border: '1px solid rgba(255,255,255,0.04)', 
+                      borderRadius: '16px', 
+                      padding: '20px', 
+                      width: '100%',
+                      maxWidth: '720px',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+                    }}>
+                      <img 
+                        src={`data:image/png;base64,${data.plots.plot_class_balance}`} 
+                        alt="Target class balance" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}
+                      />
+                      <div style={{
+                        marginTop: '16px',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        background: 'rgba(245, 158, 11, 0.03)',
+                        border: '1px solid rgba(245, 158, 11, 0.1)',
+                        textAlign: 'left'
+                      }}>
+                        <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#f59e0b', margin: '0 0 6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Info size={14} /> Outcome Target Class Representation
+                        </h4>
+                        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0, lineHeight: '1.5' }}>
+                          This bar chart compares the total count of patients in each outcome class (e.g. diabetic vs healthy, or 1 vs 0). 
+                          <strong>Academic & Ethical Value:</strong> Balanced training is critical for medical AI. A highly unbalanced dataset (e.g. 95% healthy and only 5% positive) will lead to an inaccurate model that fails to detect actual disease, making this class balance audit essential.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 5. Feature Boxplot (NEW) */}
+                  {data.plots.plot_boxplot && (
+                    <div style={{ 
+                      background: 'rgba(255,255,255,0.015)', 
+                      border: '1px solid rgba(255,255,255,0.04)', 
+                      borderRadius: '16px', 
+                      padding: '20px', 
+                      width: '100%',
+                      maxWidth: '720px',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+                    }}>
+                      <img 
+                        src={`data:image/png;base64,${data.plots.plot_boxplot}`} 
+                        alt="Feature range boxplot" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.3)' }}
+                      />
+                      <div style={{
+                        marginTop: '16px',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        background: 'rgba(239, 68, 68, 0.03)',
+                        border: '1px solid rgba(239, 68, 68, 0.1)',
+                        textAlign: 'left'
+                      }}>
+                        <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#ef4444', margin: '0 0 6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Info size={14} /> Outliers & Statistical Ranges by Outcome Group
+                        </h4>
+                        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0, lineHeight: '1.5' }}>
+                          This boxplot graphs the median, quartiles (interquartile range box), and outlier markers (individual dots) of a key continuous feature, split by outcome group.
+                          <strong>Analytical Value:</strong> It visualizes the statistical separation. If the box regions for outcome '0' and outcome '1' are fully separated and do not overlap, it mathematically proves to clinical evaluators that this feature is a highly discriminative diagnostic predictor.
+                        </p>
+                      </div>
                     </div>
                   )}
                 </div>
