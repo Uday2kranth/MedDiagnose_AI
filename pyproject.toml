@@ -1,0 +1,44 @@
+[project]
+name = "uday-major-project"
+version = "0.1.0"
+description = "MedDiagnose AI — AI-powered medical diagnosis tool with classification + regression support, SHAP explainability, and galaxy-themed UI"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # ── Core Backend ──
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart",
+    # ── Data & ML ──
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "xgboost",
+    "shap",
+    # ── LangChain & LLM Providers ──
+    "langchain",
+    "langchain-google-genai",
+    "langchain-openai",
+    "langchain-ollama",
+    "langchain-mistralai",
+    # ── Google Cloud Gmail API (for email tool) ──
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
+    # ── Utilities ──
+    "python-dotenv",
+    "requests",
+    # ── Report Export ──
+    "fpdf2",
+    "python-docx",
+    "matplotlib",
+    # ── Streamlit Legacy Frontend (optional, for app.py) ──
+    "streamlit",
+    "streamlit-shap",
+    "streamlit-lottie",
+    "streamlit-antd-components",
+    "streamlit-echarts",
+    "streamlit-extras",
+    "streamlit-option-menu",
+    "pip>=26.1.2",
+]

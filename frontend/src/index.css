@@ -1,0 +1,309 @@
+/* ============================================================
+   MedDiagnose Design System — Bioluminescent Neural Edition
+   Cyan → Teal → Coral neural-pathway accent palette
+   Inspired by fluorescence microscopy & neural network visualization
+   ============================================================ */
+
+:root {
+  /* ── Background — Deep ocean / neural tissue black-blue ── */
+  --bg-primary:     #020a13;
+  --bg-secondary:   #061220;
+  --bg-tertiary:    #0b1a2e;
+  --bg-glass:       rgba(6, 18, 32, 0.60);
+  --bg-glass-hover: rgba(11, 26, 46, 0.78);
+  --bg-card:        rgba(6, 18, 32, 0.50);
+  --bg-input:       rgba(4, 12, 22, 0.80);
+  --bg-overlay:     rgba(2, 10, 19, 0.92);
+
+  /* ── Accent Palette — Bioluminescent Neural ── */
+  --accent-peach:   #00d4ff;    /* Primary — bioluminescent cyan */
+  --accent-pink:    #0ef6cc;    /* Secondary — neural teal-green */
+  --accent-lilac:   #a78bfa;    /* Tertiary — synapse purple */
+  --accent-violet:  #8b5cf6;    /* Deep synapse violet */
+  --accent-mint:    #0ef6cc;    /* Success / bio-green */
+  --accent-sky:     #38bdf8;    /* Light neural blue */
+  --accent-rose:    #ff6b9d;    /* Neural activity / warning pink */
+  --accent-gold:    #fbbf24;    /* Heat map amber */
+  --accent-coral:   #ff6b6b;    /* Risk / danger */
+  --accent-cyan:    #00d4ff;    /* Primary cyan */
+  --accent-white:   #e0f2fe;    /* Bright neural white-blue */
+
+  /* ── Accent opacity variants ── */
+  --accent-peach-10:  rgba(0, 212, 255, 0.10);
+  --accent-peach-20:  rgba(0, 212, 255, 0.20);
+  --accent-pink-10:   rgba(14, 246, 204, 0.10);
+  --accent-pink-20:   rgba(14, 246, 204, 0.20);
+  --accent-lilac-10:  rgba(167, 139, 250, 0.10);
+  --accent-lilac-20:  rgba(167, 139, 250, 0.20);
+  --accent-lilac-30:  rgba(167, 139, 250, 0.30);
+  --accent-violet-10: rgba(139, 92, 246, 0.10);
+  --accent-violet-20: rgba(139, 92, 246, 0.20);
+  --accent-mint-10:   rgba(14, 246, 204, 0.10);
+  --accent-mint-15:   rgba(14, 246, 204, 0.15);
+  --accent-mint-20:   rgba(14, 246, 204, 0.20);
+  --accent-sky-10:    rgba(56, 189, 248, 0.10);
+  --accent-rose-10:   rgba(255, 107, 157, 0.10);
+  --accent-rose-20:   rgba(255, 107, 157, 0.20);
+  --accent-rose-40:   rgba(255, 107, 157, 0.40);
+  --accent-gold-10:   rgba(251, 191, 36, 0.10);
+  --accent-cyan-10:   rgba(0, 212, 255, 0.10);
+
+  /* ── Text — cool clinical contrast ── */
+  --text-primary:   #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted:     #94a3b8;
+  --text-bright:    #ffffff;
+  --text-white:     #ffffff;
+
+  /* ── Borders — subtle blue tint ── */
+  --border-subtle:  rgba(0, 212, 255, 0.04);
+  --border-light:   rgba(0, 212, 255, 0.08);
+  --border-medium:  rgba(0, 212, 255, 0.14);
+  --border-glow:    rgba(0, 212, 255, 0.25);
+  --border-focus:   rgba(0, 212, 255, 0.45);
+
+  /* ── Shadows — bioluminescent glows ── */
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md:   0 8px 30px rgba(0, 10, 30, 0.6);
+  --shadow-lg:   0 20px 60px rgba(0, 10, 30, 0.7);
+  --shadow-glow-peach:  0 0 35px rgba(0, 212, 255, 0.12);
+  --shadow-glow-pink:   0 0 35px rgba(14, 246, 204, 0.12);
+  --shadow-glow-lilac:  0 0 35px rgba(167, 139, 250, 0.15);
+  --shadow-glow-mint:   0 0 35px rgba(14, 246, 204, 0.12);
+
+  /* ── Typography ── */
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  /* ── Spacing ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* ── Radius ── */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-2xl:  28px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 150ms var(--ease-out-expo);
+  --transition-base: 300ms var(--ease-out-expo);
+  --transition-slow: 500ms var(--ease-out-expo);
+
+  /* ── Z-index ── */
+  --z-background: 0;
+  --z-base:       1;
+  --z-card:       10;
+  --z-sticky:     20;
+  --z-overlay:    30;
+  --z-modal:      40;
+  --z-tooltip:    50;
+}
+
+/* ── Global Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+#root { min-height: 100vh; position: relative; }
+::selection { background: rgba(0, 212, 255, 0.25); color: var(--text-white); }
+
+/* ── Scrollbar — neural blue ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.12); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 255, 0.25); }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); font-weight: 700; color: var(--text-bright); line-height: 1.2; }
+.font-mono { font-family: var(--font-mono); }
+
+/* ── Gradient text — Bioluminescent ── */
+.text-gradient-warm {
+  background: linear-gradient(135deg, #00d4ff 0%, #0ef6cc 50%, #a78bfa 100%);
+  background-size: 200% 200%;
+  animation: gradient-breathe 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient {
+  background: linear-gradient(135deg, #f0f9ff 0%, #38bdf8 50%, #64748b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-cool {
+  background: linear-gradient(135deg, #38bdf8 0%, #a78bfa 50%, #0ef6cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass Card — neural frost ── */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base),
+    background var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.12), transparent);
+  pointer-events: none;
+}
+.glass-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--border-subtle);
+  background: var(--bg-glass-hover);
+}
+
+/* ── Buttons — neural gradient ── */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+  color: #020a13;
+  background: linear-gradient(135deg, #00d4ff, #0ef6cc, #38bdf8);
+  background-size: 200% 200%;
+  animation: gradient-breathe 4s ease infinite;
+  border: none; border-radius: var(--radius-full); cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4); }
+.btn-primary:active { transform: translateY(0) scale(0.97); }
+
+.btn-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  background: rgba(0, 212, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary); cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.btn-icon:hover { background: rgba(0, 212, 255, 0.08); color: var(--text-primary); border-color: var(--border-light); }
+
+/* ── Input ── */
+.input-field {
+  width: 100%; padding: 11px 16px;
+  font-family: var(--font-mono); font-size: 14px;
+  color: var(--text-primary); background: var(--bg-input);
+  border: 1px solid var(--border-light); border-radius: var(--radius-md);
+  outline: none; transition: all var(--transition-base);
+}
+.input-field:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px var(--accent-cyan-10), var(--shadow-glow-peach);
+  background: rgba(4, 12, 22, 0.95);
+}
+.input-field::placeholder { color: var(--text-muted); }
+
+/* ── Badge ── */
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; font-size: 12px; font-weight: 600; border-radius: var(--radius-full); letter-spacing: 0.02em; }
+.badge-live { background: linear-gradient(135deg, var(--accent-mint-10), var(--accent-cyan-10)); color: var(--accent-mint); border: 1px solid var(--accent-mint-15); }
+
+/* ── Label ── */
+.label { display: block; font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+@keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes glow-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes skeleton-pulse { 0% { opacity: 0.3; } 50% { opacity: 0.7; } 100% { opacity: 0.3; } }
+
+@keyframes gradient-breathe {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes border-shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+
+/* ── Neural pulse animation ── */
+@keyframes neural-pulse {
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
+  50%  { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(0, 212, 255, 0.4); }
+  50%      { transform: scale(1.3); box-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.3); }
+}
+
+@keyframes cell-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(10px, -15px) scale(1.05); }
+  50%      { transform: translate(-5px, -25px) scale(0.98); }
+  75%      { transform: translate(-15px, -10px) scale(1.03); }
+}
+
+@keyframes helix-rotate {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+/* ── Shimmer border — neural ── */
+.shimmer-border { position: relative; }
+.shimmer-border::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.15) 20%, rgba(14, 246, 204, 0.15) 40%, rgba(167, 139, 250, 0.15) 60%, rgba(0, 212, 255, 0.15) 80%, transparent 100%);
+  background-size: 200% auto;
+  animation: border-shimmer 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none; opacity: 0;
+  transition: opacity var(--transition-base);
+}
+.shimmer-border:hover::after { opacity: 1; }
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* ── Container ── */
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
+@media (max-width: 1024px) { .container { padding: 0 var(--space-md); } }
+@media (max-width: 768px) { :root { --space-lg: 16px; --space-xl: 24px; --space-2xl: 32px; } }

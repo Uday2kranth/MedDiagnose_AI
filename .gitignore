@@ -1,0 +1,67 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Credentials and Environment files
+.env
+credentials.json
+token.json
+
+# Saved ML models (never commit trained pipeline files)
+*.joblib
+
+# Web/JS dependencies and builds
+node_modules/
+frontend/dist/
+
+# Logs and generated reports
+*.log
+sent_emails.log
+meddiagnose_report.txt
+
+# Editor directories and OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Raw/Original datasets
+original_data_sets/
+
+# College Thesis / Report / Documentation
+M_Sc_Data_Science_Thesis_Blueprint.md
+documentaations/
+
+# Ignore large binary files/packages
+*.docx
+*.pdf
+*.zip
+*.rar
+*.xlsx
+
+# Local deployment guides
+DEPLOYMENT_GUIDE.md
+
+#ignore local python enviroments in other folders 
+Rogramming for eda and data cleaning/
+
+# Exclude extra documentation, media, and temp directories
+screenshots/
+Data_vis/
+resume/
+checklater/
+project_report.html
+project_files_bundle.md
+cleaned_data.csv
+synthetic_health_data.csv
+gen/
+frontend/public/nurse_usagi.png
+IMAGE_HOSTING_GUIDE.md
+
+
