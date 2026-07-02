@@ -214,11 +214,11 @@ CEREBRAS_MODELS = {
 }
 
 NVIDIA_NIM_MODELS = {
-    "nvidia/nemotron-nano-9b-v2": "🟩 NVIDIA Nemotron-Nano-9B-v2 (NVIDIA NIM) [Text Only]",
+    "nvidia/nvidia-nemotron-nano-9b-v2": "🟩 NVIDIA Nemotron Nano 9B v2 (NVIDIA NIM) [Agent ✓]",
     "meta/llama-3.3-70b-instruct": "🦙 Meta Llama 3.3 70B Instruct (NVIDIA NIM) [Agent ✓]",
     "meta/llama-3.1-8b-instruct": "🦙 Meta Llama 3.1 8B Instruct (NVIDIA NIM) [Agent ✓]",
-    "deepseek/deepseek-v3": "🧠 DeepSeek V3 (NVIDIA NIM) [Agent ✓]",
-    "nvidia/nemotron-3-nano-omni": "🟩 NVIDIA Nemotron-3-Nano-Omni (NVIDIA NIM) [Text Only]",
+    "deepseek-ai/deepseek-v3.2": "🧠 DeepSeek V3.2 (NVIDIA NIM) [Agent ✓]",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": "🟩 NVIDIA Nemotron 3 Nano Omni (NVIDIA NIM) [Agent ✓]",
 }
 
 PROVIDERS = {
