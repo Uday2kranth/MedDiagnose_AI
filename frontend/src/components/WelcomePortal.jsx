@@ -44,7 +44,7 @@ export default function WelcomePortal({ onTabChange, onModelLoad, isModelReady }
       description: "Analyze medical dataset distributions and investigate feature cross-correlation heatmaps computed directly on the backend.",
       icon: Activity,
       actionText: "View Analytical Visualizations",
-      tabId: "dashboard", // In Dashboard component
+      tabId: "dashboard-eda", // Special: navigate to dashboard then scroll to EDA section
       color: "var(--accent-mint)"
     },
     {
@@ -73,7 +73,7 @@ export default function WelcomePortal({ onTabChange, onModelLoad, isModelReady }
     },
     {
       title: "Nurse Usagi Chatbot",
-      description: "Engage with a specialized LangChain LLM medical assistant to summarize predictions, explain terms, or email reports to patients.",
+      description: "Engage with a specialized LangChain LLM medical assistant to explain predictions, email reports, or translate summaries to Indic languages (Hindi, Tamil, Telugu, etc.).",
       icon: MessageCircle,
       actionText: "Open Chat Drawer",
       tabId: "chatbot-drawer", // Managed by FAB but guides user
@@ -183,6 +183,15 @@ export default function WelcomePortal({ onTabChange, onModelLoad, isModelReady }
                     // Open chatbot drawer
                     const fab = document.getElementById("chat-fab");
                     if (fab) fab.click();
+                  } else if (feat.tabId === "dashboard-eda") {
+                    // Navigate to dashboard then scroll to EDA section
+                    onTabChange('dashboard');
+                    setTimeout(() => {
+                      const edaSection = document.getElementById("eda-dashboard-section");
+                      if (edaSection) {
+                        edaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, 450);
                   } else {
                     onTabChange(feat.tabId);
                   }

@@ -44,6 +44,7 @@ When anyone asks about your capabilities, respond with ONLY these concise one-li
 • I can search and explain medical terms, diseases, and conditions.
 • I can break down SHAP/XAI feature contributions in simple language.
 • I can compose and send a medical report email to a specified address.
+• I can translate health reports and explanations into major Indic languages (Hindi, Bengali, Gujarati, Kannada, Malayalam, Marathi, Punjabi, Tamil, Telugu, and Oriya).
 Do NOT describe how these work internally. Just state what you can do, nothing more.
 
 ═══ STRICT MEDICAL-ONLY SCOPE ═══
@@ -214,9 +215,12 @@ CEREBRAS_MODELS = {
 }
 
 NVIDIA_NIM_MODELS = {
-    "qwen/qwen3.5-397b-a17b": "🧠 Qwen 3.5 397B A17B (NVIDIA NIM) [Agent ✓]",
-    "minimaxai/minimax-m2.5": "💬 MiniMax M2.5 (NVIDIA NIM) [Agent ✓]",
+    "minimaxai/minimax-m2.7": "💬 MiniMax M2.7 (NVIDIA NIM) [Agent ✓]",
+    "deepseek-ai/deepseek-chat-3-2": "🧠 DeepSeek 3.2 (NVIDIA NIM) [Agent ✓]",
+    "moonshotai/kimi-k2": "🌙 Kimi 2.5 (NVIDIA NIM) [Agent ✓]",
+    "zhipuai/glm-5.1": "🧠 GLM 5.1 (NVIDIA NIM) [Agent ✓]",
     "openai/gpt-oss-120b": "🤖 OpenAI gpt-oss-120b (NVIDIA NIM) [Agent ✓]",
+    "sarvamai/sarvam-m": "🧡 Sarvam-M Indic Translate (NVIDIA NIM) [Agent ✓]",
 }
 
 PROVIDERS = {

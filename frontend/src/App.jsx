@@ -422,7 +422,7 @@ export default function App() {
                     <MessageCircle size={14} /> Nurse Usagi Chat
                   </div>
                   <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
-                    Engage with the specialized clinical AI chatbot assistant to interpret predictions.
+                    Engage with the specialized clinical AI chatbot assistant to interpret predictions and translate summaries to Indic languages.
                   </p>
                 </div>
 
