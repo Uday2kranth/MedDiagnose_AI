@@ -19,10 +19,10 @@ const PROVIDER_OPTIONS = {
   "OpenRouter": [
     { id: "openrouter/owl-alpha", label: "Owl Alpha", agent: false },
     { id: "nvidia/nemotron-3-ultra-550b-a55b:free", label: "NVIDIA: Nemotron 3 Ultra (free)", agent: false },
-    { id: "google/gemma-4-31b-it:free", label: "Google: Gemma 4 31B (free)", agent: false },
+    { id: "google/gemma-4-31b-it:free", label: "Google: Gemma 4 31B (free)", agent: true },
     { id: "poolside/laguna-m.1:free", label: "Poolside: Laguna M.1 (free)", agent: false },
     { id: "nvidia/nemotron-3-super-120b-a12b:free", label: "NVIDIA: Nemotron 3 Super (free)", agent: true },
-    { id: "openai/gpt-oss-120b:free", label: "OpenAI: gpt-oss-120b (free)", agent: false },
+    { id: "openai/gpt-oss-120b:free", label: "OpenAI: gpt-oss-120b (free)", agent: true },
     { id: "poolside/laguna-xs.2:free", label: "Poolside: Laguna XS.2 (free)", agent: false },
     { id: "cohere/north-mini-code:free", label: "Cohere: North Mini Code (free)", agent: false },
     { id: "openrouter/free", label: "randome free model roulette", agent: true },
@@ -308,7 +308,7 @@ const ChatDrawer = ({
                 >
                   {currentModels.map(mod => (
                     <option key={mod.id} value={mod.id}>
-                      {mod.label} {mod.agent ? '' : '⚠️'}
+                      {mod.agent ? '🤖 [Agent✓]' : '📝 [Text Only]'} {mod.label}
                     </option>
                   ))}
                 </select>
