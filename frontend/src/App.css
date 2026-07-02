@@ -1041,5 +1041,34 @@
   background: rgba(255,255,255,0.015);
 }
 
-
-
+/* Chat Loading Wave Indicator Animation */
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 4px;
+}
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--text-primary, #ffffff);
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: typingWave 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+@keyframes typingWave {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.35;
+  }
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}

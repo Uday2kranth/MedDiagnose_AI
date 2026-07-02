@@ -66,7 +66,8 @@ const ChatDrawer = ({
   chatApiKey,
   setChatApiKey,
   onClearChat,
-  serverKeys = {}
+  serverKeys = {},
+  isChatLoading
 }) => {
   const chatEndRef = useRef(null);
   const [isMaximized, setIsMaximized] = useState(true);
@@ -427,6 +428,21 @@ const ChatDrawer = ({
                 </div>
               </motion.div>
             ))
+          )}
+          {isChatLoading && (
+            <motion.div
+              initial={{ opacity: 0, y: 12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              className="chat-msg chat-msg-assistant"
+            >
+              <div className="chat-bubble chat-bubble-assistant" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px' }}>
+                <div className="typing-dots">
+                  <span className="typing-dot" />
+                  <span className="typing-dot" />
+                  <span className="typing-dot" />
+                </div>
+              </div>
+            </motion.div>
           )}
           <div ref={chatEndRef} />
         </div>

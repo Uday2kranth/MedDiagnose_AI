@@ -72,6 +72,7 @@ export default function App() {
   const [chatProvider, setChatProvider] = useState("OpenRouter");
   const [chatModel, setChatModel] = useState("openrouter/free");
   const [chatApiKey, setChatApiKey] = useState("");
+  const [isChatLoading, setIsChatLoading] = useState(false);
 
   const [backendOnline, setBackendOnline] = useState(null);
   const [serverKeys, setServerKeys] = useState({});
@@ -222,6 +223,7 @@ export default function App() {
     const msg = chatInput;
     setChatInput("");
     setMessages(prev => [...prev, { role: "user", content: msg }]);
+    setIsChatLoading(true);
 
     try {
       const res = await axios.post(`${API_URL}/chat`, {
@@ -235,6 +237,7 @@ export default function App() {
       const errorMsg = err.response?.data?.detail || "Error connecting to AI. Make sure the backend is running and configured.";
       setMessages(prev => [...prev, { role: "assistant", content: `⚠️ ${errorMsg}` }]);
     }
+    setIsChatLoading(false);
   };
 
   const handleResetSession = () => {
@@ -565,6 +568,7 @@ export default function App() {
           setChatApiKey={setChatApiKey}
           onClearChat={() => setMessages([])}
           serverKeys={serverKeys}
+          isChatLoading={isChatLoading}
         />
       </div>
     </div>
