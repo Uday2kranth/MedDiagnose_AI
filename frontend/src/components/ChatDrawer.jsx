@@ -36,11 +36,9 @@ const PROVIDER_OPTIONS = {
     { id: "meta-llama/llama-3.3-70b-instruct:free", label: "Meta: Llama 3.3 70B Instruct (free)", agent: true }
   ],
   "NVIDIA NIM": [
-    { id: "nvidia/nvidia-nemotron-nano-9b-v2", label: "NVIDIA Nemotron Nano 9B v2", agent: true },
-    { id: "meta/llama-3.3-70b-instruct", label: "Meta Llama 3.3 70B Instruct", agent: true },
-    { id: "meta/llama-3.1-8b-instruct", label: "Meta Llama 3.1 8B Instruct", agent: true },
-    { id: "deepseek-ai/deepseek-v3.2", label: "DeepSeek V3.2", agent: true },
-    { id: "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning", label: "NVIDIA Nemotron 3 Nano Omni", agent: true }
+    { id: "qwen/qwen3.5-397b-a17b", label: "Qwen 3.5 397B A17B", agent: true },
+    { id: "minimaxai/minimax-m2.5", label: "MiniMax M2.5", agent: true },
+    { id: "openai/gpt-oss-120b", label: "OpenAI gpt-oss-120b", agent: true }
   ]
 };
 
