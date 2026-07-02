@@ -101,7 +101,11 @@ const ChatDrawer = ({
     const newProv = e.target.value;
     setStagedProvider(newProv);
     const models = PROVIDER_OPTIONS[newProv] || [];
-    setStagedModel(models.length > 0 ? models[0].id : "");
+    if (newProv === "OpenRouter") {
+      setStagedModel("openrouter/free");
+    } else {
+      setStagedModel(models.length > 0 ? models[0].id : "");
+    }
   };
 
   const handleApplySettings = () => {
@@ -308,6 +312,25 @@ const ChatDrawer = ({
                     </option>
                   ))}
                 </select>
+                {/* Free model recommendation alert */}
+                {stagedModel === "openrouter/free" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{
+                      fontSize: '10px',
+                      color: '#34d399',
+                      background: 'rgba(52, 211, 153, 0.08)',
+                      border: '1px solid rgba(52, 211, 153, 0.15)',
+                      padding: '6px 10px',
+                      borderRadius: '6px',
+                      marginTop: '4px',
+                      fontWeight: '500'
+                    }}
+                  >
+                    💡 Better responses without interruptions.
+                  </motion.div>
+                )}
                 {/* Agent capability warning */}
                 {!isAgentCapable && (
                   <motion.div

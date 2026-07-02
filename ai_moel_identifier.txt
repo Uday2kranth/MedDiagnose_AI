@@ -1,3 +1,8 @@
+# ============================================================
+# OPENROUTER MODELS
+# ============================================================
+name : randome free model roulette
+Identifier : openrouter/free
 name : Owl Alpha
 Identifier : openrouter/owl-alpha
 name: NVIDIA: Nemotron 3 Ultra (free)
@@ -14,8 +19,6 @@ name : Poolside: Laguna XS.2 (free)
 Identifier: poolside/laguna-xs.2:free Now add
 name : Cohere: North Mini Code (free)
 Identifier: cohere/north-mini-code:free
-name : randome free model roulette
-Identifier: openrouter/free
 name : Venice: Uncensored (free)
 Identifier: cognitivecomputations/dolphin-mistral-24b-venice-edition:free
 name : OpenAI: gpt-oss-20b (free)
@@ -32,34 +35,28 @@ name : Qwen: Qwen3 Coder 480B A35B (free)
 Identifier : qwen/qwen3-coder:free
 name : Meta: Llama 3.3 70B Instruct (free)
 Identifier : meta-llama/llama-3.3-70b-instruct:free
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
-name : 
-Identifier : 
+
+# ============================================================
+# NVIDIA NIM MODELS
+# ============================================================
+name : Meta: Llama 3.1 405B Instruct (Nvidia NIM)
+Identifier : meta/llama-3.1-405b-instruct
+name : Meta: Llama 3.1 70B Instruct (Nvidia NIM)
+Identifier : meta/llama-3.1-70b-instruct
+name : Meta: Llama 3 70B Instruct (Nvidia NIM)
+Identifier : meta/llama-3-70b-instruct
+name : Mistral: Mixtral 8x22B Instruct (Nvidia NIM)
+Identifier : mistralai/mixtral-8x22b-instruct
+name : Mistral: Mistral Large (Nvidia NIM)
+Identifier : mistralai/mistral-large
+name : Qwen: Qwen 3 Next (Nvidia NIM)
+Identifier : qwen/qwen3-next
+name : ZhipuAI: GLM 5.1 (Nvidia NIM)
+Identifier : zhipuai/glm-5.1
+name : ZhipuAI: GLM 4 (Nvidia NIM)
+Identifier : zhipuai/glm-4
+name : MiniMax: MiniMax M3 (Nvidia NIM)
+Identifier : minimax/minimax-m3
 
 GOOGLE MODELS
 # Standard recommended model for agentic loops, speed, and tool calling

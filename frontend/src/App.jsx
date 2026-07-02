@@ -70,7 +70,7 @@ export default function App() {
   const [messages, setMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
   const [chatProvider, setChatProvider] = useState("OpenRouter");
-  const [chatModel, setChatModel] = useState("openrouter/owl-alpha");
+  const [chatModel, setChatModel] = useState("openrouter/free");
   const [chatApiKey, setChatApiKey] = useState("");
 
   const [backendOnline, setBackendOnline] = useState(null);
