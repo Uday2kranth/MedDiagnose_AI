@@ -39,24 +39,17 @@ Identifier : meta-llama/llama-3.3-70b-instruct:free
 # ============================================================
 # NVIDIA NIM MODELS
 # ============================================================
-name : Meta: Llama 3.1 405B Instruct (Nvidia NIM)
-Identifier : meta/llama-3.1-405b-instruct
-name : Meta: Llama 3.1 70B Instruct (Nvidia NIM)
-Identifier : meta/llama-3.1-70b-instruct
-name : Meta: Llama 3 70B Instruct (Nvidia NIM)
-Identifier : meta/llama-3-70b-instruct
-name : Mistral: Mixtral 8x22B Instruct (Nvidia NIM)
-Identifier : mistralai/mixtral-8x22b-instruct
-name : Mistral: Mistral Large (Nvidia NIM)
-Identifier : mistralai/mistral-large
-name : Qwen: Qwen 3 Next (Nvidia NIM)
-Identifier : qwen/qwen3-next
-name : ZhipuAI: GLM 5.1 (Nvidia NIM)
-Identifier : zhipuai/glm-5.1
-name : ZhipuAI: GLM 4 (Nvidia NIM)
-Identifier : zhipuai/glm-4
-name : MiniMax: MiniMax M3 (Nvidia NIM)
-Identifier : minimax/minimax-m3
+name : NVIDIA Nemotron-Nano-9B-v2 (Nvidia NIM)
+Identifier : nvidia/nemotron-nano-9b-v2
+name : Meta Llama 3.3 70B Instruct (Nvidia NIM)
+Identifier : meta/llama-3.3-70b-instruct
+name : Meta Llama 3.1 8B Instruct (Nvidia NIM)
+Identifier : meta/llama-3.1-8b-instruct
+name : DeepSeek V3 (Nvidia NIM)
+Identifier : deepseek/deepseek-v3
+name : NVIDIA Nemotron-3-Nano-Omni (Nvidia NIM)
+Identifier : nvidia/nemotron-3-nano-omni
+
 
 GOOGLE MODELS
 # Standard recommended model for agentic loops, speed, and tool calling

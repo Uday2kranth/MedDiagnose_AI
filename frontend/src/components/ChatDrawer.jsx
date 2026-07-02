@@ -36,15 +36,11 @@ const PROVIDER_OPTIONS = {
     { id: "meta-llama/llama-3.3-70b-instruct:free", label: "Meta: Llama 3.3 70B Instruct (free)", agent: true }
   ],
   "NVIDIA NIM": [
-    { id: "meta/llama-3.1-405b-instruct", label: "🦙 Llama 3.1 405B", agent: true },
-    { id: "meta/llama-3.1-70b-instruct", label: "🦙 Llama 3.1 70B", agent: true },
-    { id: "meta/llama-3-70b-instruct", label: "🦙 Llama 3 70B", agent: true },
-    { id: "mistralai/mixtral-8x22b-instruct", label: "🌀 Mixtral 8x22B", agent: true },
-    { id: "mistralai/mistral-large", label: "🌀 Mistral Large", agent: true },
-    { id: "qwen/qwen3-next", label: "🧠 Qwen 3 Next", agent: true },
-    { id: "zhipuai/glm-5.1", label: "🧠 GLM 5.1", agent: true },
-    { id: "zhipuai/glm-4", label: "🧠 GLM 4", agent: true },
-    { id: "minimax/minimax-m3", label: "🧠 MiniMax M3", agent: true }
+    { id: "nvidia/nemotron-nano-9b-v2", label: "NVIDIA Nemotron-Nano-9B-v2", agent: false },
+    { id: "meta/llama-3.3-70b-instruct", label: "Meta Llama 3.3 70B Instruct", agent: true },
+    { id: "meta/llama-3.1-8b-instruct", label: "Meta Llama 3.1 8B Instruct", agent: true },
+    { id: "deepseek/deepseek-v3", label: "DeepSeek V3", agent: true },
+    { id: "nvidia/nemotron-3-nano-omni", label: "NVIDIA Nemotron-3-Nano-Omni", agent: false }
   ]
 };
 
